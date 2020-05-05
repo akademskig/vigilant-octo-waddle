@@ -10,7 +10,7 @@ const FRegistrationS = styled.div`
     width: 90%;
     margin: auto;
     color: white;
-    /* background-color: ${({ theme }) => theme.colors.primary.light}; */
+    background-color: ${({ theme }) => theme.colors.primary.dark}E6;
     border: 1px solid ${({ theme }) => theme.colors.secondary.light};
     border-radius: 3px;
 `
