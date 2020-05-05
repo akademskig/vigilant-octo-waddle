@@ -7,7 +7,7 @@ import theme from './theme';
 
 
 const GlobalStyle = createGlobalStyle`
-  body {
+  * {
      box-sizing: border-box;
     font-family: ${({theme}:{theme: {fonts: any}}) => theme.fonts.family};
   }
