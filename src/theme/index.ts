@@ -9,7 +9,8 @@ const theme = {
             dark: '#bc2500',
             medium: '#f75b1e',
             light: '#f7e813',
-        }
+        },
+        error: '#ff647b'
     },
     fonts:{
         family:`-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
