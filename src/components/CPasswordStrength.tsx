@@ -15,15 +15,15 @@ position: relative;
     text-align: center;
     width: 100%;
     left:0;
-    line-height: 1em;
+    font-size: 0.8em;
+    line-height: 1.2em;
     position: absolute;
-    text-transform: capitalize;
+    text-transform: uppercase;
     top:0;
 }
 div{
     border-radius: 2px;
     height: 100%;
-    font-size: 1em;
     &.none{
         width: 1%;
         background-color: red;

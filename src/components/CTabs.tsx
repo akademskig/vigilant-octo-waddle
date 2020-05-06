@@ -3,14 +3,18 @@ import styled from 'styled-components';
 
 const CTabsS = styled.div<{ active?: boolean }>`
     display: flex;
+
     button {
+    opacity: 0.5;
+
         &.active{
+            opacity: 1;
             color: ${({ theme }) => theme.colors.secondary.light} ;
         }
         background-color: transparent;
         border: none;
         cursor: pointer;
-        color: inherit;
+        color: white;
         font-family: inherit;
         font-size: inherit;
         width: 100%;
@@ -35,12 +39,12 @@ const CTabS = styled.span<{ active?: boolean }>`
       border: none;
     };
 `
-export default function CTabs({ children, selectTab, selectedTab }: { children: any, selectedTab: number, selectTab: Dispatch<SetStateAction<number>> }) {
+export default function CTabs({ children, selectedTab }: { children: any, selectedTab: number }) {
 
     return (
         <CTabsS>
             {children.map((c: any, idx: number) =>
-                cloneElement(<button>{c}</button>, { className: idx === selectedTab ? "active" : '', key: idx, onClick: () => selectTab(idx) }))}
+                cloneElement(<button>{c}</button>, { className: idx === selectedTab ? "active" : '', key: idx }))}
         </CTabsS>
     )
 }

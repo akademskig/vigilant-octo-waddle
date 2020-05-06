@@ -7,10 +7,10 @@ import CRegistration1 from './CRegistration1';
 
 const FRegistrationS = styled.div`
     max-width: 400px;
-    width: 90%;
+    width: 96%;
     margin: auto;
     color: white;
-    background-color: ${({ theme }) => theme.colors.primary.dark}E6;
+    background-color: ${({ theme }) => theme.colors.primary.dark}F2;
     border: 1px solid ${({ theme }) => theme.colors.secondary.light};
     border-radius: 3px;
 `
@@ -52,7 +52,6 @@ function FRegistration() {
             }
         }
     }
-    console.log(form1)
     const form2 = {
         'email': {
             value: email,
@@ -103,7 +102,7 @@ function FRegistration() {
                 </CTabs>
                 <CTabPanels selectedIndex={tabSelected}>
                     <CRegistration1 fields={form1} next={() => setTabSelected(1)} />
-                    <CRegistration1 fields={form2} />
+                    <CRegistration1 fields={form2} back={()=> setTabSelected(0)} />
                 </CTabPanels>
             </div>
         </FRegistrationS>

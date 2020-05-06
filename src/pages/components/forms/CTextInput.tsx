@@ -8,8 +8,7 @@ flex-direction: column;
 align-items : flex-start;
 max-width:90%;
 margin: auto;
-padding: 1em;
-padding-top: 0;
+padding: 0 1em 1em 1em;
 
 input{
     margin-top: 0.3em;
