@@ -7,7 +7,6 @@ text-transform: uppercase;
 background-color: transparent;
 border: none;
 border-top: 0.5px solid ${({ theme }) => theme.colors.secondary.light};
-/* border-radius: 3px; */
 color: ${({ theme }) => theme.colors.secondary.light};
 width: 100%;
 font-size: 1em;
