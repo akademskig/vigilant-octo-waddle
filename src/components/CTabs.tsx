@@ -5,8 +5,8 @@ const CTabsS = styled.div<{ active?: boolean }>`
     display: flex;
 
     button {
-    opacity: 0.5;
-
+        opacity: 0.5;
+        color: ${({ theme }) => theme.colors.secondary.light} ;
         &.active{
             opacity: 1;
             color: ${({ theme }) => theme.colors.secondary.light} ;
@@ -14,11 +14,11 @@ const CTabsS = styled.div<{ active?: boolean }>`
         background-color: transparent;
         border: none;
         cursor: pointer;
-        color: white;
         font-family: inherit;
         font-size: inherit;
         width: 100%;
         padding: 1em;
+        text-transform: uppercase;
         &:focus{
             border: none;
             outline: none;
@@ -30,15 +30,6 @@ const CTabsS = styled.div<{ active?: boolean }>`
     box-sizing: border-box;
 `
 
-const CTabS = styled.span<{ active?: boolean }>`
-    text-align: center;
-    background-color: ${({ theme, active }) => active ? theme.colors.secondary.light : 'transparent'} 
-
-    button {
-       background-color: ${({ theme, active }) => active ? theme.colors.secondary.light : 'transparent'} ;
-      border: none;
-    };
-`
 export default function CTabs({ children, selectedTab }: { children: any, selectedTab: number }) {
     return (
         <CTabsS>
@@ -50,8 +41,8 @@ export default function CTabs({ children, selectedTab }: { children: any, select
 
 export function CTab({ label }: { label: string }) {
     return (
-        <CTabS>
+        <span>
             {label}
-        </CTabS>
+        </span>
     )
 }
