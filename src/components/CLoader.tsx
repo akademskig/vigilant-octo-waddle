@@ -26,16 +26,16 @@ const CLoaderS = styled.div`
 
     .banana-image{
         width: 4em;
-        animation: ${CLoaderA} 1s linear infinite;
+        animation: ${CLoaderA} 0.5s linear infinite;
     }
 }
 `
-export default function CLoader({loading}: {loading:boolean}) {
+export default function CLoader({ loading }: { loading: boolean }) {
 
     return (
         <CLoaderS>
-        {loading && <div className="loader">
-                <img className={`banana-image`}src={banana}></img>
+            {loading && <div className="loader">
+                <img className={`banana-image`} alt='Banana' src={banana}></img>
             </div>}
         </CLoaderS>
     )
