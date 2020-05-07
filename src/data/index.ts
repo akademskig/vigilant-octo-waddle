@@ -159,7 +159,7 @@ export const form = [
         validations: {
             required: {
                 value: true,
-                message: 'Username name is required'
+                message: 'Username is required'
             },
         } 
     },
