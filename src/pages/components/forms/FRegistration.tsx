@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
-import { useForm } from "react-hook-form";
 import CTabs, { CTab } from '../../../components/CTabs';
 import CTabPanels from '../../../components/CTabPanels';
 import styled from 'styled-components';
 import CRegistration1 from './CRegistration1';
-
+import CLoader from '../../../components/CLoader';
+import { registerUser } from '../../../api/index';
+import { form } from "../../../data";
 const FRegistrationS = styled.div`
     max-width: 400px;
     width: 96%;
@@ -22,76 +23,71 @@ function FRegistration() {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [repeatPassword, setRepeatPassword] = useState('')
-    const form1 = {
-        'fname': {
-            value: firstName,
-            setValue: setFirstName,
-            validations: {
-                required: {
-                    value: true,
-                    message: 'First name is required'
-                },
+    const [loading, setLoading] = useState(false)
+    let form1: any[] = []
+    let form2: any[] = []
+    form.forEach(field => {
+        let formField: any = field
+        switch (field.code) {
+            case ('fname'): {
+                formField['value'] = firstName
+                formField['setValue'] = setFirstName
+                form1.push(formField)
+                break
             }
-        }, 'lname': {
-            value: lastName,
-            setValue: setLastName,
-            validations: {
-                required: {
-                    value: true,
-                    message: 'Last name is required'
-                },
+            case ('lname'): {
+                formField['value'] = lastName
+                formField['setValue'] = setLastName
+                form1.push(formField)
+                break
             }
-        }, 'username': {
-            value: username,
-            setValue: setUsername,
-            validations: {
-                required: {
-                    value: true,
-                    message: 'Username name is required'
-                },
+            case ('username'): {
+                formField['value'] = username
+                formField['setValue'] = setUsername
+                form1.push(formField)
+                break
             }
-        }
-    }
-    const form2 = {
-        'email': {
-            value: email,
-            setValue: setEmail,
-            validations: {
-                required: {
-                    value: true,
-                    message: 'Email is required'
-                },
-                pattern: {
-                    value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
-                    message: "Invalid email"
-                }
+            case ('email'): {
+                formField['value'] = email
+                formField['setValue'] = setEmail
+                form2.push(formField)
+                break
             }
-        }, 'password': {
-            value: password,
-            setValue: setPassword,
-            validations: {
-                required: {
-                    value: true,
-                    message: 'Password is required'
-                },
-                minLength: {
-                    value: 8,
-                    message: "Password not strong enough!"
-                }
+            case ('password'): {
+                formField['value'] = password
+                formField['setValue'] = setPassword
+                form2.push(formField)
+                break
             }
-        }, 'password_confirm': {
-            value: repeatPassword,
-            setValue: setRepeatPassword,
-            validations: {
-                required: {
-                    value: true,
-                    message: 'You have to confirm password'
-                },
-                validate: {
-                    confirm: (value: string) => value === password || "Passwords do not match!"
-                }
+            case ('repeat_password'): {
+                formField['value'] = repeatPassword
+                formField['setValue'] = setRepeatPassword
+                formField.validations.validate.confirm = (value: string) => value === password || "Passwords do not match!"
+                form2.push(formField)
+                break
             }
         }
+    })
+
+    async function onSubmit() {
+        const form1Data = form1.map(({ code, value, dataType }: { code: string, value: string, dataType: string }) => ({
+            code: code,
+            valueStr: value,
+            dataType: dataType
+        }))
+        const form2Data = form2.map(({ code, value, dataType }: { code: string, value: string, dataType: string }) => ({
+            code: code,
+            valueStr: value,
+            dataType: dataType
+        }))
+        const data = { fields: [...form1Data, ...form2Data] }
+        setLoading(true)
+        registerUser(data)
+            .then(res => {
+                console.log(res)
+            })
+            .catch(err => console.error(err))
+            .finally(() => setLoading(false))
     }
     return (
         <FRegistrationS>
@@ -102,9 +98,10 @@ function FRegistration() {
                 </CTabs>
                 <CTabPanels selectedIndex={tabSelected}>
                     <CRegistration1 fields={form1} next={() => setTabSelected(1)} />
-                    <CRegistration1 fields={form2} back={()=> setTabSelected(0)} />
+                    <CRegistration1 fields={form2} back={() => setTabSelected(0)} submit={onSubmit} />
                 </CTabPanels>
             </div>
+            <CLoader loading={loading}></CLoader>
         </FRegistrationS>
     )
 }
