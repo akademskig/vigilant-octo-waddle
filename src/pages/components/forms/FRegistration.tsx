@@ -6,6 +6,8 @@ import CRegistration1 from './CRegistration1';
 import CLoader from '../../../components/CLoader';
 import { registerUser } from '../../../api/index';
 import { form } from "../../../data";
+import { NotificationManager, NotificationContainer } from 'react-notifications';
+
 const FRegistrationS = styled.div`
     max-width: 400px;
     width: 96%;
@@ -70,17 +72,7 @@ function FRegistration() {
     })
 
     async function onSubmit() {
-        const form1Data = form1.map(({ code, value, dataType }: { code: string, value: string, dataType: string }) => ({
-            code: code,
-            valueStr: value,
-            dataType: dataType
-        }))
-        const form2Data = form2.map(({ code, value, dataType }: { code: string, value: string, dataType: string }) => ({
-            code: code,
-            valueStr: value,
-            dataType: dataType
-        }))
-        const data = { fields: [...form1Data, ...form2Data] }
+      const form = [...form1, ...form2]
         setLoading(true)
         registerUser(form)
             .then(res => {
@@ -96,8 +88,8 @@ function FRegistration() {
         <FRegistrationS>
             <div>
                 <CTabs {...{ selectTab: setTabSelected, selectedTab: tabSelected }}>
-                    <CTab label="Contact Information"></CTab>
-                    <CTab label="Set password"></CTab>
+                    <CTab label="Step 1"></CTab>
+                    <CTab label="Step 2"></CTab>
                 </CTabs>
                 <CTabPanels selectedIndex={tabSelected}>
                     <CRegistration1 fields={form1} next={() => setTabSelected(1)} />
