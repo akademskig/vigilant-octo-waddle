@@ -82,11 +82,14 @@ function FRegistration() {
         }))
         const data = { fields: [...form1Data, ...form2Data] }
         setLoading(true)
-        registerUser(data)
+        registerUser(form)
             .then(res => {
+                NotificationManager.success('Registration successful!')
                 console.log(res)
             })
-            .catch(err => console.error(err))
+            .catch(({ info }) => {
+                NotificationManager.error(info.error, 'Registration failed!', 10000)
+            })
             .finally(() => setLoading(false))
     }
     return (
@@ -102,6 +105,7 @@ function FRegistration() {
                 </CTabPanels>
             </div>
             <CLoader loading={loading}></CLoader>
+            <NotificationContainer />
         </FRegistrationS>
     )
 }
