@@ -1,6 +1,5 @@
-import React, { Dispatch, SetStateAction, Fragment } from 'react';
+import React from 'react';
 import { useForm } from "react-hook-form";
-import { formFields } from '../../../data/index';
 import CTextIput from './CTextInput';
 import CButton from '../../../components/CButton';
 import styled from 'styled-components';
@@ -16,9 +15,12 @@ const FRegistrationS = styled.form`
         display: flex;
     }
 `
-function CRegistration1({ fields, next, back }: { fields: any, next?: () => void, back?: () => void }) {
-    const { register, handleSubmit, watch, errors } = useForm();
+function CRegistration1({ fields, next, back, submit }: { fields: any, next?: () => void, back?: () => void, submit?: () => void }) {
+    const { register, handleSubmit, errors } = useForm();
     function onSubmit(data: any) {
+        if (submit) {
+            submit()
+        }
         if (next) {
             next()
         }
@@ -30,30 +32,29 @@ function CRegistration1({ fields, next, back }: { fields: any, next?: () => void
 
     return (
         <FRegistrationS noValidate onSubmit={handleSubmit(onSubmit)}>
-            {formFields.map(ff => Object.keys(fields).includes(ff.code) &&
+            {fields.map((field: any) =>
                 <CTextIput
-                    key={ff.code}
-                    error={errors[ff.code]}
-                    register={register(fields[ff.code].validations)}
-                    {...fields[ff.code]}
-                    {...ff} />)}
+                    key={field.code}
+                    error={errors[field.code]}
+                    register={register(field.validations)}
+                    {...field} />)}
             {next &&
                 <CButton onClick={() => onNext()} >
                     Next
-                <img src={rightIcon} className="right"/>
+                <img src={rightIcon} className="right" />
                     <img src={rightIconActive} className="active right" />
                 </CButton>}
             {!next &&
                 <div className="btn-group">
                     <CButton onClick={back}>
-                        <img src={leftIcon} className="left"/>
+                        <img src={leftIcon} className="left" />
                         <img src={leftIconActive}
                             className="active left" />
                         Back
                         </CButton>
                     <CButton type="submit"  >
                         Submit
-                        <img src={checkIcon} className="right"/>
+                        <img src={checkIcon} className="right" />
                         <img src={checkIconActive}
                             className="active right" />
                     </CButton>
