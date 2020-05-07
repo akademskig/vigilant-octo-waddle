@@ -1,4 +1,4 @@
-import React, { Dispatch, SetStateAction, cloneElement } from 'react';
+import React, { cloneElement } from 'react';
 import styled from 'styled-components';
 
 const CTabsS = styled.div<{ active?: boolean }>`
@@ -40,7 +40,6 @@ const CTabS = styled.span<{ active?: boolean }>`
     };
 `
 export default function CTabs({ children, selectedTab }: { children: any, selectedTab: number }) {
-
     return (
         <CTabsS>
             {children.map((c: any, idx: number) =>
