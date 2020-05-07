@@ -129,6 +129,84 @@ export const formFields = [
             }]
     }
 ]	
-
+export const form = [
+    {
+        code: 'fname',
+        name: 'First name',
+        value:'',
+        setValue: () => '',
+        dataType: 'string',
+        validations: {
+            required: {
+                value: true,
+                message: 'First name is required'
+            },
+        }
+    }, {
+        code: 'lname',
+        name: 'Last name',
+        dataType: 'string',
+        validations: {
+            required: {
+                value: true,
+                message: 'Last name is required'
+            },
+        },
+    }, {
+        code: 'username',
+        name: 'Username',
+        dataType: 'string',
+        validations: {
+            required: {
+                value: true,
+                message: 'Username name is required'
+            },
+        } 
+    },
+    {
+        code: 'email',
+        name: 'Email',
+        dataType: 'string',
+        validations: {
+            required: {
+                value: true,
+                message: 'Email is required'
+            },
+            pattern: {
+                value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
+                message: "Invalid email"
+            }
+        }
+    }, {
+        code: 'password',
+        name: 'Password',
+        dataType: 'string',
+        fieldType: 'password',
+        validations: {
+            required: {
+                value: true,
+                message: 'Password is required'
+            },
+            minLength: {
+                value: 8,
+                message: "Password not strong enough!"
+            }
+        }
+    }, {
+        code: 'repeat_password',
+        name: 'Repeat Password',
+        dataType: 'string',
+        fieldType: 'password',
+        validations: {
+            required: {
+                value: true,
+                message: 'You have to confirm password'
+            },
+            validate: {
+                confirm: (value: string) => !!value || "Passwords do not match!"
+            }
+        }
+    }
+]
 export const strongRegex = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})")
 export const mediumRegex = new RegExp("^(((?=.*[a-z])(?=.*[A-Z]))|((?=.*[a-z])(?=.*[0-9]))|((?=.*[A-Z])(?=.*[0-9])))(?=.{6,})");
