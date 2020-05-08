@@ -20,6 +20,10 @@ position: relative;
     position: absolute;
     text-transform: uppercase;
     top:0;
+
+    @media(max-width: 800px){
+        line-height: 1.3em;
+    }
 }
 div{
     border-radius: 2px;

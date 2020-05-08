@@ -23,7 +23,7 @@ img{
 `
 export function CSelectLanguage({ options, setTranslations, currentLocale }: CSelectProps) {
     const selectedIndex = options.findIndex((option: any) => option.value === currentLocale)
-    const selected = options.find((option: any) => option.value === currentLocale)
+    const selected = options[selectedIndex]
     return (
         <CSelectS>
             {selected && <img src={selected.img} alt="Country flag" />}

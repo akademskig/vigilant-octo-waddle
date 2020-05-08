@@ -10,6 +10,7 @@ import rightIconActive from "../../../assets/rightIconActive.svg";
 import checkIcon from "../../../assets/checkIcon.svg";
 import checkIconActive from "../../../assets/checkIconActive.svg";
 import { TranslationContext } from '../../../translation/translation.context';
+import { CCheckbox } from '../../../components/CCheckbox';
 
 const FRegistrationS = styled.form`
     .btn-group{
@@ -20,6 +21,8 @@ function CRegistration1({ fields, next, back, submit }: { fields: any, next?: ()
     const { register, handleSubmit, errors } = useForm();
     let { useTranslations } = useContext(TranslationContext)
     let tr = useTranslations()
+console.log(errors)
+
     function onSubmit(data: any) {
         if (submit) {
             submit()
@@ -35,29 +38,37 @@ function CRegistration1({ fields, next, back, submit }: { fields: any, next?: ()
 
     return (
         <FRegistrationS noValidate onSubmit={handleSubmit(onSubmit)}>
-            {fields.map((field: any) =>
+            {fields.map((field: any) => field.dataType === 'string' ?
                 <CTextIput
                     key={field.code}
                     error={errors[field.code]}
                     register={register(field.validations)}
-                    {...field} />)}
+                    {...field} />
+                :
+                <CCheckbox
+                    key={field.code}
+                    error={errors[field.code]}
+                    register={register(field.validations)}
+                    {...field}
+                ></CCheckbox>
+            )}
             {next &&
                 <CButton onClick={() => onNext()} >
                     {tr.t('next')}
-                    <img src={rightIcon} className="right" alt="Arrow right"/>
+                    <img src={rightIcon} className="right" alt="Arrow right" />
                     <img src={rightIconActive} className="active right" alt="Arrow right active" />
                 </CButton>}
             {!next &&
                 <div className="btn-group">
                     <CButton onClick={back}>
-                        <img src={leftIcon} className="left" alt="Arrow left"/>
+                        <img src={leftIcon} className="left" alt="Arrow left" />
                         <img src={leftIconActive}
-                            className="active left" alt="Arrow left active"/>
+                            className="active left" alt="Arrow left active" />
                         {tr.t('back')}
-                        </CButton>
+                    </CButton>
                     <CButton type="submit">
                         {tr.t('submit')}
-                        <img src={checkIcon} className="right" alt="Arrow right"/>
+                        <img src={checkIcon} className="right" alt="Arrow right" />
                         <img src={checkIconActive}
                             alt="Arrow right active"
                             className="active right" />

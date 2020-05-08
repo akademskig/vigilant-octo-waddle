@@ -17,7 +17,7 @@ const FRegistrationS = styled.div`
     border: 1px solid ${({ theme }) => theme.colors.secondary.light};
     border-radius: 3px;
 `
-function FRegistration({useTranslations}: any) {
+function FRegistration({ useTranslations }: any) {
     const [tabSelected, setTabSelected] = useState(0)
     const [firstName, setFirstName] = useState('')
     const [lastName, setLastName] = useState('')
@@ -25,6 +25,7 @@ function FRegistration({useTranslations}: any) {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [repeatPassword, setRepeatPassword] = useState('')
+    const [accept, setAccept] = useState(false)
     const [loading, setLoading] = useState(false)
 
     const tr = useTranslations()
@@ -70,11 +71,16 @@ function FRegistration({useTranslations}: any) {
                 form2.push(formField)
                 break
             }
+            case ('accept'): {
+                formField['value'] = accept
+                formField['setValue'] = setAccept
+                form2.push(formField)
+                break
+            }
         }
     })
-
     async function onSubmit() {
-      const form = [...form1, ...form2]
+        const form = [...form1, ...form2]
         setLoading(true)
         registerUser(form)
             .then(res => {
