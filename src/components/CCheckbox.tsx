@@ -100,7 +100,7 @@ export function CCheckbox({ setValue, value, code, error, name, validations, reg
     return (
         <CCheckboxS>
             <label className="container" htmlFor={code}>{tr.t(name)} {validations['required'] && <span >*</span>}
-                <input ref={register}type="checkbox" id={code} name={code} onChange={(e) => onValueChange(e.target.value)} checked={value} value={!value} />
+                <input ref={register}type="checkbox" id={code} name={code} onChange={(e) => onValueChange(e.target.value)} checked={value} value={(!value).toString()} />
                 <span className="checkmark"></span>
             </label>
             {error && <span className="error">{tr.t(error.message)}</span>}
