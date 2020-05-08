@@ -3,7 +3,7 @@ import RegistrationPage from './pages/registration.page';
 import { ThemeProvider, createGlobalStyle } from 'styled-components';
 import theme from './theme';
 import 'react-notifications/lib/notifications.css';
-
+import { TranslationProvider } from './translation/Translation.provider';
 
 const GlobalStyle = createGlobalStyle`
   * {
@@ -23,7 +23,9 @@ function App() {
     <ThemeProvider theme={theme}>
       <GlobalStyle />
       <div className="App">
+        <TranslationProvider>
         <RegistrationPage></RegistrationPage>
+        </TranslationProvider>
       </div>
     </ThemeProvider>
   );
