@@ -3,12 +3,12 @@ import FRegistration from './components/forms/FRegistration';
 import styled from 'styled-components';
 import monkeyImg from '../assets/monkey.svg'
 import monkeyFormImg from '../assets/monkeyForm.svg'
+import { Toolbar } from '../components/CToolbar';
 
 const RegistrationPageS = styled.div`
 justify-content: center;
 min-height: 100vh;
 align-items: center;
-padding-top: 5vh;
 padding-bottom: 5vh;
 box-sizing: border-box;
 background-color: ${({ theme }) => theme.colors.primary.dark};
@@ -23,12 +23,12 @@ background-size: 250px;
     margin:auto;
 }
 `
-function RegistrationPage() {
-
+function RegistrationPage(props: any) {
     return (
         <RegistrationPageS>
-            <img className="monkey-img"src={monkeyFormImg} alt="Monkey"></img>
-            <FRegistration></FRegistration>
+            <Toolbar {...props} />
+            <img className="monkey-img" src={monkeyFormImg} alt="Monkey"></img>
+            <FRegistration {...props}></FRegistration>
         </RegistrationPageS>
     )
 }
