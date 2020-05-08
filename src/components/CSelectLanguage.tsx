@@ -13,7 +13,7 @@ const CSelectS = styled.div`
         padding: 0.2em 0.4em;
         border-radius: 2px;
         color: white;
-        margin-left: 0.4em;
+        margin-left: 0.8em;
         &:hover{
             cursor: pointer;
         }
