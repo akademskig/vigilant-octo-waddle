@@ -19,6 +19,8 @@ const translations = {
         'Password is required': 'Password is required',
         'You have to confirm password': 'Repeat password is required',
         'Accept the terms and conditions': 'Accept the terms and conditions',
+        'English': 'English',
+        'Croatian': 'Croatian'
     },
     'hr':{
         'step 1': 'korak 1',
@@ -40,6 +42,8 @@ const translations = {
         'Password is required': 'Lozinka je obavezna',
         'You have to confirm password': 'Obazno je ponoviti lozinku',
         'Accept the terms and conditions': 'Prihvatite uvjete korištenja',
+        'English': 'Engleski',
+        'Croatian': 'Hrvatski'
     }
 }
 
