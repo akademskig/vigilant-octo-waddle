@@ -1,8 +1,8 @@
 import React, { Dispatch, SetStateAction, useContext } from 'react';
 import styled from 'styled-components';
-import CPasswordStrength from '../../../components/CPasswordStrength';
+import CPasswordStrength from './CPasswordStrength';
 import Polyglot from 'node-polyglot';
-import { TranslationContext } from '../../../translation/translation.context';
+import { TranslationContext } from '../translation/translation.context';
 
 const CTextInputS = styled.div`
     display: flex;

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import CTabs, { CTab } from '../../../components/CTabs';
 import CTabPanels from '../../../components/CTabPanels';
 import styled from 'styled-components';
-import CRegistration1 from './CRegistration1';
+import CRegistration from './CRegistration';
 import CLoader from '../../../components/CLoader';
 import { registerUser } from '../../../api/index';
 import { form } from "../../../data";
@@ -99,8 +99,8 @@ function FRegistration({ useTranslations }: any) {
                     <CTab label={tr.t("step 2")}></CTab>
                 </CTabs>
                 <CTabPanels {...useTranslations} selectedIndex={tabSelected}>
-                    <CRegistration1 fields={form1} next={() => setTabSelected(1)} />
-                    <CRegistration1 fields={form2} back={() => setTabSelected(0)} submit={onSubmit} />
+                    <CRegistration fields={form1} next={() => setTabSelected(1)} />
+                    <CRegistration fields={form2} back={() => setTabSelected(0)} submit={onSubmit} />
                 </CTabPanels>
             </div>
             <CLoader loading={loading}></CLoader>

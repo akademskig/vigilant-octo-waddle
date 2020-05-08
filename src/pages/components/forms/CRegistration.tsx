@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { useForm } from "react-hook-form";
-import CTextIput from './CTextInput';
+import CTextIput from '../../../components/CTextInput';
 import CButton from '../../../components/CButton';
 import styled from 'styled-components';
 import leftIcon from "../../../assets/leftIcon.svg";
@@ -17,11 +17,10 @@ const FRegistrationS = styled.form`
         display: flex;
     }
 `
-function CRegistration1({ fields, next, back, submit }: { fields: any, next?: () => void, back?: () => void, submit?: () => void }) {
+function CRegistration({ fields, next, back, submit }: { fields: any, next?: () => void, back?: () => void, submit?: () => void }) {
     const { register, handleSubmit, errors } = useForm();
     let { useTranslations } = useContext(TranslationContext)
     let tr = useTranslations()
-console.log(errors)
 
     function onSubmit(data: any) {
         if (submit) {
@@ -78,4 +77,4 @@ console.log(errors)
     )
 }
 
-export default CRegistration1
+export default CRegistration
