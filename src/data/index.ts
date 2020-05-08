@@ -194,7 +194,7 @@ export const form = [
         }
     }, {
         code: 'repeat_password',
-        name: 'Repeat Password',
+        name: 'Repeat password',
         dataType: 'string',
         fieldType: 'password',
         validations: {

@@ -79,7 +79,6 @@ function FRegistration({useTranslations}: any) {
         registerUser(form)
             .then(res => {
                 NotificationManager.success('Registration successful!')
-                console.log(res)
             })
             .catch(({ info }) => {
                 NotificationManager.error(info.error, 'Registration failed!', 3000)
@@ -93,7 +92,7 @@ function FRegistration({useTranslations}: any) {
                     <CTab label={tr.t("step 1")}></CTab>
                     <CTab label={tr.t("step 2")}></CTab>
                 </CTabs>
-                <CTabPanels selectedIndex={tabSelected}>
+                <CTabPanels {...useTranslations} selectedIndex={tabSelected}>
                     <CRegistration1 fields={form1} next={() => setTabSelected(1)} />
                     <CRegistration1 fields={form2} back={() => setTabSelected(0)} submit={onSubmit} />
                 </CTabPanels>

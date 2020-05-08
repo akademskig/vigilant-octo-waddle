@@ -10,6 +10,7 @@ const theme = {
             medium: '#f75b1e',
             light: '#f7e813',
         },
+        blue: '#66adf7',
         error: '#ff647b'
     },
     fonts:{

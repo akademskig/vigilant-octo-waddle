@@ -1,6 +1,8 @@
-import React, { Dispatch, SetStateAction } from 'react';
+import React, { Dispatch, SetStateAction, useContext } from 'react';
 import styled from 'styled-components';
 import CPasswordStrength from '../../../components/CPasswordStrength';
+import Polyglot from 'node-polyglot';
+import { TranslationContext } from '../../../translation/translation.context';
 
 const CTextInputS = styled.div`
 display: flex;
@@ -21,19 +23,20 @@ input{
         outline:  ${({theme})=> theme.colors.error};
     }
 }
+
 span.error{
     color: ${({theme})=> theme.colors.error}
 }
 `
 export default function CTextIput({ code, name, fieldType, value, setValue, register, error, validations }: CTextInputParams) {
-
+    let { useTranslations } = useContext(TranslationContext)
+    let tr = useTranslations()
     function onValueChange(value: string){
-        console.log(register)
         setValue(value)
     }
     return (
         <CTextInputS>
-            <label htmlFor={code}>{name} { validations['required'] && <span >*</span>}</label>
+            <label htmlFor={code}>{tr.t(name)} { validations['required'] && <span >*</span>}</label>
             <input 
             className={error ? "error": ""}
             defaultValue={value}
@@ -43,7 +46,7 @@ export default function CTextIput({ code, name, fieldType, value, setValue, regi
             onChange={(e) => onValueChange(e.target.value)}
             ref={register}
             />
-            {error && <span className="error">{error.message}</span>}
+            {error && <span className="error">{tr.t(error.message)}</span>}
             {code==="password" && value &&  <CPasswordStrength password={value}></CPasswordStrength>}
         </CTextInputS>
     )
@@ -57,5 +60,6 @@ type CTextInputParams = {
     setValue: Dispatch<SetStateAction<any>>,
     register: () => void,
     error: any,
-    validations: any
+    validations: any,
+    useTranslations: ()=> Polyglot
 }
