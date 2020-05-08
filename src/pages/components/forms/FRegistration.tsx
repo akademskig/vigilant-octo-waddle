@@ -17,7 +17,7 @@ const FRegistrationS = styled.div`
     border: 1px solid ${({ theme }) => theme.colors.secondary.light};
     border-radius: 3px;
 `
-function FRegistration() {
+function FRegistration({useTranslations}: any) {
     const [tabSelected, setTabSelected] = useState(0)
     const [firstName, setFirstName] = useState('')
     const [lastName, setLastName] = useState('')
@@ -26,6 +26,8 @@ function FRegistration() {
     const [password, setPassword] = useState('')
     const [repeatPassword, setRepeatPassword] = useState('')
     const [loading, setLoading] = useState(false)
+
+    const tr = useTranslations()
     let form1: any[] = []
     let form2: any[] = []
     form.forEach(field => {
@@ -80,7 +82,7 @@ function FRegistration() {
                 console.log(res)
             })
             .catch(({ info }) => {
-                NotificationManager.error(info.error, 'Registration failed!', 10000)
+                NotificationManager.error(info.error, 'Registration failed!', 3000)
             })
             .finally(() => setLoading(false))
     }
@@ -88,8 +90,8 @@ function FRegistration() {
         <FRegistrationS>
             <div>
                 <CTabs {...{ selectTab: setTabSelected, selectedTab: tabSelected }}>
-                    <CTab label="Step 1"></CTab>
-                    <CTab label="Step 2"></CTab>
+                    <CTab label={tr.t("step 1")}></CTab>
+                    <CTab label={tr.t("step 2")}></CTab>
                 </CTabs>
                 <CTabPanels selectedIndex={tabSelected}>
                     <CRegistration1 fields={form1} next={() => setTabSelected(1)} />
