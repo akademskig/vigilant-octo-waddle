@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import CTabs, { CTab } from '../../../components/CTabs';
 import CTabPanels from '../../../components/CTabPanels';
 import styled from 'styled-components';
-import CRegistration from './CRegistration';
+import CRegistration from '../../CRegistration';
 import CLoader from '../../../components/CLoader';
 import { registerUser } from '../../../api/index';
-import { form } from "../../../data";
+import { form } from "./formData";
 import { NotificationManager, NotificationContainer } from 'react-notifications';
 
 const FRegistrationS = styled.div`
@@ -84,10 +84,10 @@ function FRegistration({ useTranslations }: any) {
         setLoading(true)
         registerUser(form)
             .then(res => {
-                NotificationManager.success('Registration successful!')
+                NotificationManager.success(tr.t('Registration successful!'))
             })
             .catch(({ info }) => {
-                NotificationManager.error(info.error, 'Registration failed!', 3000)
+                NotificationManager.error(tr.t(info.error), tr.t('Registration failed!'))
             })
             .finally(() => setLoading(false))
     }

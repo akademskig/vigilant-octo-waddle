@@ -1,5 +1,5 @@
 const translations = {
-    'en':{
+    'en': {
         'step 1': 'step 1',
         'step 2': 'step 2',
         'First name': 'First name',
@@ -20,9 +20,21 @@ const translations = {
         'You have to confirm password': 'Repeat password is required',
         'Accept the terms and conditions': 'Accept the terms and conditions',
         'English': 'English',
-        'Croatian': 'Croatian'
+        'Croatian': 'Croatian',
+        'Registration successful': 'Registration successful',
+        'Registration failed!': 'Registration failed!',
+        'Last name can contain only letters!': 'Last name can contain only letters!',
+        'First name can contain only letters!': 'First name can contain only letters!',
+        'Username can contain only letters and numbers!': 'Username can contain only letters and numbers!',
+        "Last name should have at least 2 characters!": "Last name should have at least 2 characters!",
+        "First name should have at least 2 characters!": "First name should have at least 2 characters!",
+        "Username should have at least 4 characters!": "Username should have at least 4 characters!",
+        'First name should not exceed 25 characters!': 'First name should not exceed 25 characters!',
+        'Last name should not exceed 25 characters!': 'Last name should not exceed 25 characters!',
+        'Username should not exceed 20 characters!': 'Username should not exceed 20 characters!'
+
     },
-    'hr':{
+    'hr': {
         'step 1': 'korak 1',
         'step 2': 'korak 2',
         'First name': 'Ime',
@@ -43,7 +55,18 @@ const translations = {
         'You have to confirm password': 'Obazno je ponoviti lozinku',
         'Accept the terms and conditions': 'Prihvatite uvjete korištenja',
         'English': 'Engleski',
-        'Croatian': 'Hrvatski'
+        'Croatian': 'Hrvatski',
+        'Registration successful!': 'Registracija uspješna!',
+        'Registration failed!': 'Registracija nije uspjela!',
+        'Last name can contain only letters!': 'Prezime smije sadržavati samo slova!',
+        'First name can contain only letters!': 'Ime smije sadržavati samo slova!',
+        'Username can contain only letters and numbers!': 'Korisničko ime smije sadržavati samo slova i brojeve!',
+        "Last name should have at least 2 characters!": "Prezime mora sadržavati barem 2 znaka!",
+        "First name should have at least 2 characters!": "Ime mora sadržavati barem 2 znaka!",
+        "Username should have at least 4 characters!": "Korisničko ime mora sadržavati barem 4 znaka!",
+        'First name should not exceed 25 characters!': 'Ime ne smije sadržavati više od 25 znakova!',
+        'Last name should not exceed 25 characters!': 'Prezime ne smije sadržavati više od 25 znakova!',
+        'Username should not exceed 20 characters!': 'Korisničko ime ne smije sadržavati više od 20 znakova!'
     }
 }
 

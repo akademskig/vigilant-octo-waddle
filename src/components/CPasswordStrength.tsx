@@ -1,5 +1,5 @@
 import React from 'react';
-import { strongRegex, mediumRegex } from '../data/index';
+import { strongRegex, mediumRegex } from '../pages/components/forms/formData';
 import styled from 'styled-components';
 
 

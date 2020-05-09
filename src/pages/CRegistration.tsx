@@ -1,16 +1,16 @@
 import React, { useContext } from 'react';
 import { useForm } from "react-hook-form";
-import CTextIput from '../../../components/CTextInput';
-import CButton from '../../../components/CButton';
+import CTextIput from '../components/CTextInput';
+import CButton from '../components/CButton';
 import styled from 'styled-components';
-import leftIcon from "../../../assets/leftIcon.svg";
-import leftIconActive from "../../../assets/leftIconActive.svg";
-import rightIcon from "../../../assets/rightIcon.svg";
-import rightIconActive from "../../../assets/rightIconActive.svg";
-import checkIcon from "../../../assets/checkIcon.svg";
-import checkIconActive from "../../../assets/checkIconActive.svg";
-import { TranslationContext } from '../../../translation/translation.context';
-import { CCheckbox } from '../../../components/CCheckbox';
+import leftIcon from "../assets/leftIcon.svg";
+import leftIconActive from "../assets/leftIconActive.svg";
+import rightIcon from "../assets/rightIcon.svg";
+import rightIconActive from "../assets/rightIconActive.svg";
+import checkIcon from "../assets/checkIcon.svg";
+import checkIconActive from "../assets/checkIconActive.svg";
+import { TranslationContext } from '../translation/translation.context';
+import { CCheckbox } from '../components/CCheckbox';
 
 const FRegistrationS = styled.form`
     .btn-group{

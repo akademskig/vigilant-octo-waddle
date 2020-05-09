@@ -2,8 +2,6 @@ export const form = [
     {
         code: 'fname',
         name: 'First name',
-        value:'',
-        setValue: () => '',
         dataType: 'string',
         validations: {
             required: {
@@ -16,7 +14,7 @@ export const form = [
             },
             maxLength: {
                 value: 25,
-                message: 'Last name should not exceed 25 characters!'
+                message: 'First name should not exceed 25 characters!'
             },
             pattern: {
                 value: /^[a-zA-ZÀ-ž ]*$/,
@@ -56,11 +54,11 @@ export const form = [
             },
             minLength:{
                 value: 4,
-                message: 'First name should have at least 4 characters!'
+                message: 'Username should have at least 4 characters!'
             },
             maxLength: {
                 value: 20,
-                message: 'Last name should not exceed 20 characters!'
+                message: 'Username should not exceed 20 characters!'
             },
             pattern: {
                 value: /^[a-zA-ZÀ-ž0-9 ]*$/,
