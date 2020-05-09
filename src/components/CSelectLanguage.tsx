@@ -1,8 +1,5 @@
 import React, { useContext } from 'react';
 import styled from 'styled-components';
-import { Locales } from '../translation/types';
-import croFlag from '../assets/cro.svg'
-import ukFlag from '../assets/uk.svg'
 import { TranslationContext } from '../translation/translation.context';
 
 const CSelectS = styled.div`
@@ -34,28 +31,15 @@ const CSelectS = styled.div`
 `
 export function CSelectLanguage() {
 
-    let { setTranslations, currentLocale, useTranslations } = useContext(TranslationContext)
-    let tr = useTranslations()
-    const options = [{
-        value: Locales.HR,
-        name: tr.t('Croatian'),
-        img: croFlag
-    },
-    {
-        value: Locales.EN,
-        name: tr.t('English'),
-        img: ukFlag
-    }
-    ]
-    const selectedIndex = options.findIndex((option: any) => option.value === currentLocale)
-    const selected = options[selectedIndex]
-
+    let { setTranslations, currentLocale, availableLocales } = useContext(TranslationContext)
+   
+    const selected = availableLocales.find((option: any) => option.value === currentLocale)
     return (
         <CSelectS>
-            {selected && <img src={selected.img} alt="Country flag" />}
-            <select onChange={(e) => setTranslations(e.target.value)}>
-                {options.map(({ value, name }: { value: string, name: string, img: string }, idx: number) =>
-                    <option key={idx} value={value} selected={idx === selectedIndex}>{name}</option>
+            {selected && <img src={selected.img} alt="Country flag"/>}
+            <select onChange={(e) => setTranslations(e.target.value)} defaultValue={selected && selected.value}>
+                {availableLocales.map(({ value, name }: { value: string, name: string, img: string }, idx: number) =>
+                    <option key={idx} value={value} >{name}</option>
                 )
                 }
             </select>

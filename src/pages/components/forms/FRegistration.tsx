@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import CTabs, { CTab } from '../../../components/CTabs';
 import CTabPanels from '../../../components/CTabPanels';
 import styled from 'styled-components';
@@ -7,6 +7,7 @@ import CLoader from '../../../components/CLoader';
 import { registerUser } from '../../../api/index';
 import { form } from "./formData";
 import { NotificationManager, NotificationContainer } from 'react-notifications';
+import { TranslationContext } from '../../../translation/translation.context';
 
 const FRegistrationS = styled.div`
     max-width: 400px;
@@ -17,7 +18,7 @@ const FRegistrationS = styled.div`
     border: 1px solid ${({ theme }) => theme.colors.secondary.light};
     border-radius: 3px;
 `
-function FRegistration({ useTranslations }: any) {
+function FRegistration() {
     const [tabSelected, setTabSelected] = useState(0)
     const [firstName, setFirstName] = useState('')
     const [lastName, setLastName] = useState('')
@@ -27,8 +28,8 @@ function FRegistration({ useTranslations }: any) {
     const [repeatPassword, setRepeatPassword] = useState('')
     const [accept, setAccept] = useState(false)
     const [loading, setLoading] = useState(false)
-
-    const tr = useTranslations()
+    let { useTranslations } = useContext(TranslationContext)
+    let tr = useTranslations()
     let form1: any[] = []
     let form2: any[] = []
     form.forEach(field => {

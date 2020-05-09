@@ -1,8 +1,10 @@
 import { Locales } from './types';
 import Polyglot from 'node-polyglot';
-import translations from './data';
-import React, { cloneElement, ReactElement, useState } from 'react';
+import translations from './translations';
+import React, { ReactElement, useState } from 'react';
 import { TranslationContext } from './translation.context';
+import croFlag from '../assets/cro.svg'
+import ukFlag from '../assets/uk.svg'
 
 export function TranslationProvider({ children }: { children: ReactElement | ReactElement[] }) {
     const defaultLocale = Locales.EN
@@ -18,9 +20,22 @@ export function TranslationProvider({ children }: { children: ReactElement | Rea
         return polyglot
     }
 
+    const availableLocales = [
+        {
+            value: Locales.HR,
+            name: useTranslations().t('Croatian'),
+            img: croFlag
+        },
+        {
+            value: Locales.EN,
+            name: useTranslations().t('English'),
+            img: ukFlag
+        }
+    ]
+
     return (
-        <TranslationContext.Provider value={{currentLocale, useTranslations, setTranslations}}>
-                 {!Array.isArray(children) && <TranslationContext.Consumer>{(context)=> cloneElement(children, {...context})}</TranslationContext.Consumer>}
+        <TranslationContext.Provider value={{ currentLocale, useTranslations, setTranslations, availableLocales }}>
+            {children}
         </TranslationContext.Provider>
     )
 }
