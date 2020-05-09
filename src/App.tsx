@@ -24,7 +24,7 @@ function App() {
       <GlobalStyle />
       <div className="App">
         <TranslationProvider>
-        <RegistrationPage></RegistrationPage>
+          <RegistrationPage></RegistrationPage>
         </TranslationProvider>
       </div>
     </ThemeProvider>
