@@ -17,6 +17,9 @@ const FRegistrationS = styled.div`
     background-color: ${({ theme }) => theme.colors.primary.dark}F2;
     border: 1px solid ${({ theme }) => theme.colors.secondary.light};
     border-radius: 3px;
+    @media(max-width: 800px){
+        max-width: 350px;
+    }
 `
 function FRegistration() {
     const [tabSelected, setTabSelected] = useState(0)
