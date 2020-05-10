@@ -1,5 +1,5 @@
 import React from 'react';
-import RegistrationPage from './pages/registration.page';
+import RegistrationPage from './pages/PRegistration';
 import { ThemeProvider, createGlobalStyle } from 'styled-components';
 import theme from './theme';
 import 'react-notifications/lib/notifications.css';
