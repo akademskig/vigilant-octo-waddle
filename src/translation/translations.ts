@@ -31,8 +31,8 @@ const translations = {
         "Username should have at least 4 characters!": "Username should have at least 4 characters!",
         'First name should not exceed 25 characters!': 'First name should not exceed 25 characters!',
         'Last name should not exceed 25 characters!': 'Last name should not exceed 25 characters!',
-        'Username should not exceed 20 characters!': 'Username should not exceed 20 characters!'
-
+        'Username should not exceed 20 characters!': 'Username should not exceed 20 characters!',
+        'Please register!': 'Please register!'
     },
     'hr': {
         'step 1': 'korak 1',
@@ -66,7 +66,8 @@ const translations = {
         "Username should have at least 4 characters!": "Korisničko ime mora sadržavati barem 4 znaka!",
         'First name should not exceed 25 characters!': 'Ime ne smije sadržavati više od 25 znakova!',
         'Last name should not exceed 25 characters!': 'Prezime ne smije sadržavati više od 25 znakova!',
-        'Username should not exceed 20 characters!': 'Korisničko ime ne smije sadržavati više od 20 znakova!'
+        'Username should not exceed 20 characters!': 'Korisničko ime ne smije sadržavati više od 20 znakova!',
+        'Please register!': 'Registrirajte se!'
     }
 }
 
