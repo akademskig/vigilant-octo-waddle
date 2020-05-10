@@ -25,7 +25,7 @@ const CLoaderS = styled.div`
     background-color: rgba(0,0,0,0.5);
 
     .banana-image{
-        width: 4em;
+        width: 6em;
         animation: ${CLoaderA} 0.5s linear infinite;
     }
 }
