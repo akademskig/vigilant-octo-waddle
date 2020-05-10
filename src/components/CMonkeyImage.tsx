@@ -26,17 +26,18 @@ const MonkeyImageS = styled.div`
         }
         span{
             position:absolute;
-            top:18px;
+            top:19px;
             left: 16px;
             max-width: 120px;
-            font-size: 0.9em;
+            font-size: 0.80em;
             font-weight: bold;
             text-transform: uppercase;
             text-align: center;
             word-wrap: break-word;
             color: lightgrey;
+            font-family: 'Bangers', cursive;
             @media(max-width:800px){
-                top: 15px;
+                top: 17px;
                 left: 16px;
                 max-width:100px;
             }

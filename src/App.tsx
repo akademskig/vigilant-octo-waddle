@@ -6,6 +6,10 @@ import 'react-notifications/lib/notifications.css';
 import { TranslationProvider } from './translation/Translation.provider';
 
 const GlobalStyle = createGlobalStyle`
+  @font-face {
+    font-family: "Bangers";
+    src: url("https://fonts.googleapis.com/css2?family=Bangers&display=swap");
+  }
   * {
      box-sizing: border-box;
      font-family: ${({ theme }: { theme: { fonts: any } }) => theme.fonts.family};
