@@ -7,9 +7,11 @@ import croFlag from '../assets/cro.svg'
 import ukFlag from '../assets/uk.svg'
 
 export function TranslationProvider({ children }: { children: ReactElement | ReactElement[] }) {
-    const defaultLocale = Locales.EN
+    //@ts-ignore
+    const defaultLocale: Locales = localStorage.getItem('current_locale') || Locales.EN
     let [currentLocale, setCurrentLocale] = useState(defaultLocale)
     const setTranslations = (locale: Locales) => {
+        localStorage.setItem('current_locale', locale)
         setCurrentLocale(locale)
     }
 
